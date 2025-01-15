@@ -1,0 +1,59 @@
+plugins {
+    id 'org.springframework.boot' version '2.6.13'
+    id 'io.spring.dependency-management' version '1.0.15.RELEASE'
+    id 'java'
+}
+
+group = 'org.example'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+
+allprojects {
+    repositories {
+        mavenLocal()
+        maven {
+            url 'https://maven.aliyun.com/repository/public'
+        }
+        maven {
+            url 'https://maven.aliyun.com/repository/google'
+        }
+        maven {
+            url 'https://maven.aliyun.com/repository/jcenter'
+        }
+        mavenCentral()
+        google()
+    }
+}
+
+// 这段 repositories 可以省略，或者和上面的 allprojects.repositories 合并
+repositories {
+    mavenLocal()
+    maven {
+        url 'https://maven.aliyun.com/repository/public'
+    }
+    maven {
+        url 'https://maven.aliyun.com/repository/google'
+    }
+    maven {
+        url 'https://maven.aliyun.com/repository/jcenter'
+    }
+    mavenCentral()
+    google()
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+}
+
+tasks.named('test') {
+    useJUnitPlatform()
+}
+
+tasks.named('jar') {
+    enabled = false // 禁用普通 JAR 打包
+}
+
+bootJar {
+    enabled = true // 启用 Spring Boot 可执行 JAR 打包
+}
