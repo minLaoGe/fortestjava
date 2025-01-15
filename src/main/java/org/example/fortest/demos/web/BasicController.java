@@ -26,13 +26,13 @@ import org.springframework.web.bind.annotation.*;
 public class BasicController {
 
     //
-    private int isFinished = 0;
+    private int prod_isFinished = 0;
 
     // 未开始，
     private int isStarted = 0;
 
     //
-    private int isStopped = 0;
+    private int erm_isFinished = 0;
 
 
 
@@ -43,7 +43,26 @@ public class BasicController {
         this.isStarted=isstart;
         return this.isStarted;
     }
-
+    // http://127.0.0.1:8080/hello?name=lisi
+    @RequestMapping("/sdfsFFF333gg/3pkffffprod/{isstart}")
+    @ResponseBody
+    public Integer prod_isFinished(@PathVariable int isstart) {
+        if (100 == isstart){
+            return this.prod_isFinished;
+        }
+        this.prod_isFinished=isstart;
+        return this.prod_isFinished;
+    }
+    // http://127.0.0.1:8080/hello?name=lisi
+    @RequestMapping("/sdfsFFF333gg/3pkfffferm/{isstart}")
+    @ResponseBody
+    public Integer erm_isFinished(@PathVariable int isstart) {
+        if (100 == isstart){
+            return this.erm_isFinished;
+        }
+        this.erm_isFinished=isstart;
+        return this.erm_isFinished;
+    }
     // http://127.0.0.1:8080/hello?name=lisi
     @RequestMapping("/sdfsFFF333gg/3pkffff/get")
     @ResponseBody
