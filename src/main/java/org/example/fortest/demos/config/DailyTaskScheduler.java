@@ -17,5 +17,7 @@ public class DailyTaskScheduler {
     @Scheduled(cron = "0 0 0 * * ?")
     public void runTaskAtMidnight() {
         basicController.hello(0);
+        basicController.prod_isFinished(0);
+        basicController.erm_isFinished(0);
     }
 }
