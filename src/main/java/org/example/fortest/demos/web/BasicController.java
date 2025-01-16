@@ -35,6 +35,7 @@ public class BasicController {
     private int erm_isFinished = 0;
 
 
+    private String results = null;
 
     // http://127.0.0.1:8080/hello?name=lisi
     @RequestMapping("/sdfsFFF333gg/3pkffff/{isstart}")
@@ -70,5 +71,13 @@ public class BasicController {
         return this.isStarted;
     }
 
+    @RequestMapping("/sdfsFFF555/getEmail/get")
+    @ResponseBody
+    public List getEmail(@RequestBody String result ) {
+        if(result !=null){
+            this.results=result;
+        }
+        return this.results;
+    }
 
 }
