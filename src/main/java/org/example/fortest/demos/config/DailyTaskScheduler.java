@@ -19,5 +19,7 @@ public class DailyTaskScheduler {
         basicController.hello(0);
         basicController.prod_isFinished(0);
         basicController.erm_isFinished(0);
+        basicController.erm_results="";
+        basicController.prod_results="";
     }
 }

@@ -36,8 +36,8 @@ public class BasicController {
     private int erm_isFinished = 0;
 
 
-    private String erm_results = null;
-    private String prod_results = null;
+    public String erm_results = null;
+    public String prod_results = null;
 
     // http://127.0.0.1:8080/hello?name=lisi
     @RequestMapping("/sdfsFFF333gg/3pkffff/{isstart}")
