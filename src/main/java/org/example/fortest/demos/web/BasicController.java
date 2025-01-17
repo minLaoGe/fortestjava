@@ -17,6 +17,7 @@
 package org.example.fortest.demos.web;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
 
 /**
@@ -35,7 +36,8 @@ public class BasicController {
     private int erm_isFinished = 0;
 
 
-    private String results = null;
+    private String erm_results = null;
+    private String prod_results = null;
 
     // http://127.0.0.1:8080/hello?name=lisi
     @RequestMapping("/sdfsFFF333gg/3pkffff/{isstart}")
@@ -71,13 +73,27 @@ public class BasicController {
         return this.isStarted;
     }
 
-    @RequestMapping("/sdfsFFF555/getEmail/get")
+    @RequestMapping("/sdfsFFF555/getEmail/get/{environment}/{result}")
     @ResponseBody
-    public List getEmail(@RequestBody String result ) {
-        if(result !=null){
-            this.results=result;
+    public String getEmail(@PathVariable Integer environment,@PathVariable String result) {
+            if (0==environment){
+                this.erm_results=result;
+                return this.erm_results;
+            }else if (1==environment){
+                this.prod_results=result;
+                return this.prod_results;
+            }
+        return null;
+    }
+    @RequestMapping("/sdfsFFF555/getEmail/getResult/{environment}")
+    @ResponseBody
+    public String getResult(@PathVariable Integer environment) {
+        if (0==environment){
+            return this.erm_results;
+        }else if (1==environment){
+            return this.prod_results;
         }
-        return this.results;
+        return null;
     }
 
 }
